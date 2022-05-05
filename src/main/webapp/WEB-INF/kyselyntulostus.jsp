@@ -7,9 +7,27 @@
 <meta charset="UTF-8">
 <title>Results page</title>
 <style>
+	body{
+		background-color: rgb(162, 191, 207, 80%);
+	}
+	table{
+		background-color: rgb(242,242,242);
+		border-collapse: collapse;
+	}
 	td,th{
-		padding-left: 20px;
+		padding-left: 10px;
+		padding-right: 10px;
 		text-align: left;
+		padding-top: 10px;
+		border-style: solid;
+  		border-color: black;
+	}
+	tr {
+    	
+	}
+	#vastlink{
+		padding: 5px;
+		background-color: rgb(242,242,242);
 	}
 
 </style>
@@ -33,10 +51,13 @@
 			<td><c:out value="${vastaukset.removeclass}"></c:out></td>
 			<td><c:out value="${vastaukset.whyremove}"></c:out></td>
 			<td><c:out value="${vastaukset.expachype}"></c:out></td>
+			<td><a href="/deleterow?id=${vastaukset.id}">delete</a></td>
 		</tr>
 	</c:forEach>
 
 </table>
-
+<br>
+<br>
+<a href="/vastaukset" id="vastlink">VASTAUKSIIN</a>
 </body>
 </html>

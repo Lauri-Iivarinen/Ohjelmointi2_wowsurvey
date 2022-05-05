@@ -14,6 +14,12 @@ import database.KyselyJdbcDao;
 import model.Kysely;
 
 
+/*
+ * RAAKA DATAN TULOSTAVA SIVU, SIVULLA ON LINKKI, MISTÄ KYSEISEN DATARIVIN VOI MYÖS POISTAA TARVITTAESSA
+ * PIDETTÄVÄ TAVALLISEN KÄYTTÄJÄN ULOTTUMATTOMISSA JOS MAHDOLLISTA
+ * 
+ */
+
 @WebServlet("/vastaukset-raw")
 public class KyselyTulostusServlet extends HttpServlet{
 

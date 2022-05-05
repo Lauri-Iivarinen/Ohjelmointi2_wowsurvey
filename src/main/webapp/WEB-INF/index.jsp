@@ -92,7 +92,7 @@
 
 <body>
     <div id="resultlink">
-        <a href="/vastaukset-raw">Just show me the results</a>
+        <a href="/vastaukset">Just show me the results</a>
     </div>
     <header>
         <div id="headerh2">
@@ -101,21 +101,21 @@
 
     </header>
 
-    <form action="">
+    <form action="/" method="post">
         <div class="questioncontainer">
             <p>Nickname (anything rly): <br>
-                <input id="nickname" type="text" class="inputs" />
+                <input id="nickname" type="text" class="inputs" name="nickname"/>
             </p>
         </div>
         <div class="questioncontainer">
             <p>Approximately how many hours have you played wow in the past 2 weeks?<br>
-                <input id="hoursplayed" type="number" class="inputs" />
+                <input id="hoursplayed" type="number" class="inputs" name="hoursplayed"/>
                 <br>
             </p>
         </div>
         <div class="questioncontainer">
             <p>SFO raid progression<br>
-                <select id="prognum" class="inputs">
+                <select id="progressnum" class="inputs" name="progressnum">
                     <option value=""></option>
                     <option value=1>1</option>
                     <option value=2>2</option>
@@ -130,7 +130,7 @@
                     <option value=11>11</option>
                 </select>
                 <label>/11 </label>
-                <select id="progdiff" class="inputs">
+                <select id="progressdiff" class="inputs" name="progressdiff">
                     <option value="LFR">LFR</option>
                     <option value="N">N</option>
                     <option value="HC">HC</option>
@@ -140,7 +140,7 @@
         </div>
         <div class="questioncontainer">
             <p>Favorite boss (any difficulty):<br>
-                <select id="favboss" class="inputs">
+                <select id="favboss" class="inputs" name="favboss">
                     <option value=""></option>
                     <option value="Guardian">Vigilant guardian</option>
                     <option value="Skolex">Skolex, the insatiable ravener</option>
@@ -158,7 +158,7 @@
         </div>
         <div class="questioncontainer">
             <p>What's your M+ score?<br>
-                <input id="mplus" type="number" class="inputs" />
+                <input id="mplus" type="number" class="inputs" name="mplus"/>
             </p>
         </div>
         <div class="questioncontainer">
@@ -169,7 +169,7 @@
         </div>
         <div class="questioncontainer">
             <p>If you had to choose one class to remove from the game which one would it be<br>
-                <select id="removeclass" class="inputs">
+                <select id="removeclass" class="inputs" name="removeclass">
                     <option value=""></option>
                     <option value="hunter">Hunter</option>
                     <option value="rogue">Rogue</option>
@@ -186,7 +186,7 @@
                     <option value="evoker">Evoker????</option>
                 </select><br>
                 <label>Why?</label><br>
-                <textarea id="whyremove" type="text"></textarea>
+                <textarea id="whyremove" type="text" name="whyremove"></textarea>
             </p>
         </div>
         <div class="questioncontainer">
