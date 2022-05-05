@@ -25,7 +25,7 @@ public class Database {
 		// Alkumääritykset
 		String username = DBAccounts.DBUSERNAME;  
 		String password = DBAccounts.DBPASSWORD;
-		String url = DBAccounts.DBURL;
+		String url = DBAccounts.DATABASE_URL;
 
 		try {
 			// Ladataan ajuri

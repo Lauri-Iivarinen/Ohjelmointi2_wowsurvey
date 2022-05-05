@@ -3,9 +3,9 @@ INSERT INTO vastauksetwow(nickname,hoursplayed,progressdiff,progressnum,favboss,
 VALUES(
     'tuul'
     ,35
-    ,'mythic'
+    ,'M'
     ,6
-    ,'artificer'
+    ,'Artificer'
     ,3007
     ,false
     ,'hunter'
