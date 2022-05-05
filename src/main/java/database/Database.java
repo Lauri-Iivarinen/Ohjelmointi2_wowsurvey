@@ -11,6 +11,7 @@ import java.sql.Statement;
  * tietokantayhteyden muodostavan getDBConnection-metodin 
  * ja erilaisia tietokantayhteyden sulkevia closeDBConnection-metodeja
  *
+ *
  */
 public class Database {
 
