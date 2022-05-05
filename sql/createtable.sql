@@ -1,7 +1,8 @@
 --Luodaan kyselyn vastaustaulukko
 
+--POSTGRESQL SYNTAKSI
 CREATE TABLE vastauksetwow(
-    id integer --rowid autoincrement
+    id SERIAL
     ,nickname varchar(20)
     ,hoursplayed integer
     ,progressdiff varchar(10)
