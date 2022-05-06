@@ -1,5 +1,6 @@
 package database;
 
+import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +20,15 @@ public class KyselyJdbcDao implements KyselyDao{
 		ResultSet tulostus = null;
 		List<Kysely> lista = new ArrayList<Kysely>();
 		
-		dbyhteys = Database.getDBConnection();
+		try {
+			dbyhteys = Database.getDBConnection();
+		} catch (URISyntaxException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		try {
 			sqlLause = dbyhteys.prepareStatement("SELECT * FROM vastauksetwow;");
 			tulostus = sqlLause.executeQuery();
@@ -60,7 +69,15 @@ public class KyselyJdbcDao implements KyselyDao{
 		PreparedStatement sqlLause = null;
 		boolean onnistunutPoisto = false;
 		
-		dbyhteys = Database.getDBConnection();
+		try {
+			dbyhteys = Database.getDBConnection();
+		} catch (URISyntaxException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		try {
 			sqlLause = dbyhteys.prepareStatement("DELETE FROM vastauksetwow WHERE id=?");
 			
@@ -87,7 +104,15 @@ public class KyselyJdbcDao implements KyselyDao{
 		PreparedStatement sqlLause = null;
 		boolean onnistunutLisays = false;
 		
-		dbyhteys = Database.getDBConnection();
+		try {
+			dbyhteys = Database.getDBConnection();
+		} catch (URISyntaxException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		try {
 			sqlLause = dbyhteys.prepareStatement("INSERT INTO vastauksetwow(nickname,hoursplayed,progressdiff,progressnum,"
 					+ "favboss,mplus,playpvp,removeclass,whyremove,expachype) "

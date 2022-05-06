@@ -1,8 +1,11 @@
 package database;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
@@ -20,6 +23,7 @@ public class Database {
 	 * 
 	 * @return connection - tietokantayhteys
 	 */
+	/*
 	public static Connection getDBConnection() {
 		Connection connection = null;			
 
@@ -30,7 +34,7 @@ public class Database {
 
 		try {
 			// Ladataan ajuri
-			Class.forName("org.sqlite.JDBC");  // SQLite-tietokanta-ajuri käyttöön
+			Class.forName("org.postgresql.Driver");  // SQLite-tietokanta-ajuri käyttöön
 
 			// Avataan yhteys connection-nimiseen muuttujaan
 			connection = DriverManager.getConnection(url, username, password);
@@ -38,6 +42,16 @@ public class Database {
 			throw new RuntimeException(e);
 		}
 		return connection;
+	}*/
+	
+	public static Connection getDBConnection() throws URISyntaxException, SQLException {
+	    URI dbUri = new URI(System.getenv("DATABASE_URL"));
+
+	    String username = dbUri.getUserInfo().split(":")[0];
+	    String password = dbUri.getUserInfo().split(":")[1];
+	    String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath() + "?sslmode=require";
+
+	    return DriverManager.getConnection(dbUrl, username, password);
 	}
 
 	/**
