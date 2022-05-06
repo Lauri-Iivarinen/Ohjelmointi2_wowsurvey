@@ -85,10 +85,10 @@ public class IndexServlet extends HttpServlet{
 		
 		//korjataan liian pitkät tekstit jotta db ei kaadu
 		if(nickname.length() >=19) {
-			nickname = "Too long nickname";
+			nickname = nickname.substring(0, 19);
 		}
 		if (whyremove.length()>= 140) {
-			whyremove = "Too long to parse into db";
+			whyremove = whyremove.substring(0, 140);
 		}
 		
 		String expachypeStr = req.getParameter("expachype");
