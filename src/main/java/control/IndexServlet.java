@@ -50,6 +50,10 @@ public class IndexServlet extends HttpServlet{
 		String removeclass = req.getParameter("removeclass");
 		String whyremove = req.getParameter("whyremove");
 		
+		//korjataan liian pitkät tekstit jotta db ei kaadu
+		if(nickname.length() >=19) {
+			nickname = "Too long nickname";
+		}
 		if (whyremove.length()>= 140) {
 			whyremove = "Too long to parse into db";
 		}

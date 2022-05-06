@@ -185,7 +185,7 @@
                     <option value="dh">Demon hunter</option>
                     <option value="evoker">Evoker????</option>
                 </select><br>
-                <label>Why?</label><br>
+                <label>Why? (max 150 chars)</label><br>
                 <textarea id="whyremove" type="text" name="whyremove"></textarea>
             </p>
         </div>
