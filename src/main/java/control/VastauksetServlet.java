@@ -32,6 +32,7 @@ public class VastauksetServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		System.out.println("vastauksetdao yhteys luodaan:");
 		KyselyDao vastauksetdao = new KyselyJdbcDao();
 		List<Kysely> vastaukset = vastauksetdao.findAll();
 		

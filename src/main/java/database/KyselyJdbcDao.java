@@ -30,10 +30,12 @@ public class KyselyJdbcDao implements KyselyDao{
 			e1.printStackTrace();
 		}
 		try {
+			System.out.println("sending sql query");
 			sqlLause = dbyhteys.prepareStatement("SELECT * FROM vastauksetwow;");
 			tulostus = sqlLause.executeQuery();
 			lista = createListFromRows(tulostus);
 		} catch (SQLException e) {
+			System.out.println("query failed");
 			e.printStackTrace();
 		}finally {
 			Database.closeDBConnection(tulostus, sqlLause, dbyhteys);
