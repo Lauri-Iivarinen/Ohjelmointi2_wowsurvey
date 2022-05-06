@@ -23,7 +23,7 @@ public class KyselyJdbcDao implements KyselyDao{
 		dbyhteys = Database.getDBConnection();
 		
 		try {
-			System.out.println("sending sql query");
+			//System.out.println("sending sql query");
 			sqlLause = dbyhteys.prepareStatement("SELECT * FROM vastauksetwow;");
 			tulostus = sqlLause.executeQuery();
 			lista = createListFromRows(tulostus);

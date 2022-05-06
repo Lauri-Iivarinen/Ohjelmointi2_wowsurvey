@@ -38,7 +38,7 @@ public class VastauksetServlet extends HttpServlet{
 		
 		KyselyMuotoilu muotoiltuvastaus = muotoile(vastaukset);
 		
-		System.out.println(muotoiltuvastaus);
+		//System.out.println(muotoiltuvastaus);
 		//muotoiltu listalla vain yksi olio, koska jsp c:forEach lol:D
 		List<KyselyMuotoilu> muotoiltu = new ArrayList();
 		muotoiltu.add(muotoiltuvastaus);
