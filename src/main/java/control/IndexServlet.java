@@ -29,13 +29,46 @@ public class IndexServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String nickname = req.getParameter("nickname");
 		String hoursplayedStr = req.getParameter("hoursplayed");
-		int hoursplayed = Integer.parseInt(hoursplayedStr);
+		
+		
+		//purkka väärien inputtien antamiseen
+		String text = "";
+		
+		for(int i = 0; i< hoursplayedStr.length(); i++) {
+			if (hoursplayedStr.charAt(i) >= '0' && hoursplayedStr.charAt(i)<= '9') {
+				text += hoursplayedStr.charAt(i);
+				System.out.println(text);
+			}else {
+				break;
+			}
+		}
+		if (text=="") text = "0";
+		
+		
+		
+		
+		int hoursplayed = Integer.parseInt(text);
 		String progressnumStr = req.getParameter("progressnum");
 		int progressnum = Integer.parseInt(progressnumStr);
 		String progressdiff = req.getParameter("progressdiff");
 		String favboss = req.getParameter("favboss");
 		String mplusStr = req.getParameter("mplus");
-		int mplus = Integer.parseInt(mplusStr);
+		
+		//purkka värärien inoputtien antamiseen m+
+		text = "";
+		
+		for(int i = 0; i< mplusStr.length(); i++) {
+			if (mplusStr.charAt(i) >= '0' && mplusStr.charAt(i)<= '9') {
+				text += mplusStr.charAt(i);
+				System.out.println(text);
+			}else {
+				break;
+			}
+		}
+		
+		if (text=="") text = "0";
+		
+		int mplus = Integer.parseInt(text);
 		boolean expachype = false;
 		boolean playpvp = false;
 		
