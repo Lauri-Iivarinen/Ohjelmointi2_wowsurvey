@@ -23,18 +23,22 @@ public class Database {
 	 * 
 	 * @return connection - tietokantayhteys
 	 */
-	/*
+	
 	public static Connection getDBConnection() {
 		Connection connection = null;			
 
 		// Alkumääritykset
+		 /*
+		 * jdbc:postgresql://<host>:<port>/<dbname>?sslmode=require&user=<username>&password=<password>
+		 */
+		
 		String username = DBAccounts.DBUSERNAME;  
 		String password = DBAccounts.DBPASSWORD;
 		String url = DBAccounts.DATABASE_URL;
 
 		try {
 			// Ladataan ajuri
-			Class.forName("org.postgresql.Driver");  // SQLite-tietokanta-ajuri käyttöön
+			Class.forName("org.postgresql.Driver");  // Postgres/SQLite-tietokanta-ajuri käyttöön
 
 			// Avataan yhteys connection-nimiseen muuttujaan
 			connection = DriverManager.getConnection(url, username, password);
@@ -42,8 +46,8 @@ public class Database {
 			throw new RuntimeException(e);
 		}
 		return connection;
-	}*/
-	
+	}
+	/*
 	public static Connection getDBConnection() throws URISyntaxException, SQLException {
 	    URI dbUri = new URI(System.getenv("DATABASE_URL"));
 
@@ -55,7 +59,7 @@ public class Database {
 	    System.out.println("Connection to db successfull");
 	    return DriverManager.getConnection(dbUrl, username, password);
 	}
-
+*/
 	/**
 	 * Sulkee Statementin ja Connectionin
 	 * 
