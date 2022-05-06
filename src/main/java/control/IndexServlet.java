@@ -50,6 +50,10 @@ public class IndexServlet extends HttpServlet{
 		String removeclass = req.getParameter("removeclass");
 		String whyremove = req.getParameter("whyremove");
 		
+		if (whyremove.length()>= 140) {
+			whyremove = "Too long to parse into db";
+		}
+		
 		String expachypeStr = req.getParameter("expachype");
 		int expachypeInt = Integer.parseInt(expachypeStr);
 		if (expachypeInt == 1) {
