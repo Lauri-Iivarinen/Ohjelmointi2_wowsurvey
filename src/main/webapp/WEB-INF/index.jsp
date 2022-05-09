@@ -25,6 +25,8 @@
         }
 
         #resultlink {
+        	margin-top: 1%;
+        	margin-bottom: 2%;
             text-align: center;
         }
 
@@ -87,6 +89,11 @@
             width: 80px;
             height: 50px;
         }
+        
+         #pl2{
+        	color: red;
+        	text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -108,7 +115,7 @@
             </p>
         </div>
         <div class="questioncontainer">
-            <p>Approximately how many hours have you played wow in the past 2 weeks?<br>
+            <p>Approximately how many hours have you played wow in the <label id ="pl2">past 2 weeks</label>?<br>
                 <input id="hoursplayed" type="number" class="inputs" name="hoursplayed"/>
                 <br>
             </p>

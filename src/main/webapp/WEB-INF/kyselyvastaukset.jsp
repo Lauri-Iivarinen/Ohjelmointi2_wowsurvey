@@ -99,6 +99,8 @@
 	        font-size: larger;
         }
         
+       
+        
     </style>
 </head>
 
@@ -406,8 +408,10 @@
 <footer>
 <br>
 	<div id="resultlink">
-        <a href="/pwcheck">admin page;p</a>
+        <a href="/topsecretresultspage">admin page;p</a>
     </div>
+    <br>
+    <br>
 </footer>
 
 </html>

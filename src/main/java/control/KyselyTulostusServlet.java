@@ -20,17 +20,53 @@ import model.Kysely;
  * 
  */
 
-@WebServlet("/vastaukset-raw")
+@WebServlet("/topsecretresultspage")
 public class KyselyTulostusServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		KyselyDao vastauksetdao = new KyselyJdbcDao();
-		List<Kysely> vastaukset = vastauksetdao.findAll();
-		
-		request.setAttribute("vastaukset", vastaukset);
-		request.getRequestDispatcher("WEB-INF/kyselyntulostus.jsp").forward(request, response);
+		String viesti = "";
+		request.setAttribute("viesti", viesti);
+		request.getRequestDispatcher("WEB-INF/pwcheck.jsp").forward(request, response);
 		
 	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		String password = req.getParameter("password");
+		
+		if(hashPw(password)) {
+			//Näyttää uuden jsp sivun
+			KyselyDao vastauksetdao = new KyselyJdbcDao();
+			List<Kysely> vastaukset = vastauksetdao.findAll();
+			
+			req.setAttribute("vastaukset", vastaukset);
+			req.getRequestDispatcher("WEB-INF/kyselyntulostus.jsp").forward(req, resp);
+			
+		}else {
+			String viesti = "WRONG >:(";
+			req.setAttribute("viesti", viesti);
+			req.getRequestDispatcher("WEB-INF/pwcheck.jsp").forward(req, resp);
+		}
+		
+	}
+	
+	
+	//Pieni hash, ei todellakaan tietoturvallinen
+	protected static boolean hashPw(String pw) {
+		boolean salasana = false;
+		//FillerPw98
+		pw = pw.replace('r', 'l');
+		pw = pw.replace('l', 'L');
+		pw = pw.replace('i', '5');
+		pw = pw.replace('e', 'F');
+		pw = pw.replace("w9", "l7p");
+		pw = pw.replace("LF", "ys");
+		if (pw.equals("F5LysLPl7p8")) salasana = true;
+		
+		return salasana;
+	}
+	
+	
 }
