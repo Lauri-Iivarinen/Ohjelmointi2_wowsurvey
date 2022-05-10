@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>fi.haaga-helia.example</groupId>
   <artifactId>lauri_harjoitustyo_kysely</artifactId>
-  <name>lauri_harjoitustyo_kysely</name>
+  <name>lauri_harjoitustyo_kysely1.0</name>
   <version>0.0.1-SNAPSHOT</version>
   <description>lauri_harjoitustyo_kysely</description>
   <build>
