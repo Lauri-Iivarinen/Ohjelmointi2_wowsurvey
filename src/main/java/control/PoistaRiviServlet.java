@@ -17,6 +17,7 @@ import database.KyselyJdbcDao;
  * JA REDIRECTAA TAKAISIN SAMALLE SIVULLE
  * 
  */
+
 @WebServlet("/deleterow")
 public class PoistaRiviServlet extends HttpServlet{
 
@@ -27,9 +28,59 @@ public class PoistaRiviServlet extends HttpServlet{
 		String idstr = req.getParameter("id");
 		int id = Integer.parseInt(idstr);
 		
-		if(kyselydao.removeRow(id)) resp.sendRedirect("/vastaukset-raw");
+		String confstr = req.getParameter("conf");
+		if (confstr.equals("adminlolxd")) {
+			if(kyselydao.removeRow(id)) resp.sendRedirect("/topsecretresultspage");
+			else {System.out.println("FAILED");}
+		}else {
+			String viesti = "Not authorized";
+			req.setAttribute("viesti", viesti);
+			req.getRequestDispatcher("WEB-INF/pwcheck.jsp").forward(req, resp);
+		}
+		
+		
+	}
+	
+}
+
+/*
+ * @WebServlet("/deleterow")
+public class PoistaRiviServlet extends HttpServlet{
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		KyselyDao kyselydao = new KyselyJdbcDao();
+		String idstr = req.getParameter("id");
+		int id = Integer.parseInt(idstr);
+		
+		if(kyselydao.removeRow(id)) resp.sendRedirect("/topsecretresultspage");
 		else {System.out.println("FAILED");}
 		
 	}
 	
 }
+ * 
+ * 
+ * 
+ * @WebServlet("/deletingrowbyid")
+public class PoistaRiviServlet extends HttpServlet{
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		KyselyDao kyselydao = new KyselyJdbcDao();
+		String idstr = req.getParameter("vastaajaid");
+		int id = Integer.parseInt(idstr);
+		
+		
+		if(kyselydao.removeRow(id)) {
+			resp.sendRedirect("/");
+		}else {
+			System.out.println("FAILED");
+		}
+		
+	}
+	
+}
+ */

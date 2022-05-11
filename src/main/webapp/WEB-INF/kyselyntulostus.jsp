@@ -14,6 +14,13 @@
 		background-color: rgb(242,242,242);
 		border-collapse: collapse;
 	}
+	form{
+		padding: 1%;
+		background-color: rgb(242,242,242);
+		border-collapse: collapse;
+		border-style: solid;
+  		border-color: black;
+	}
 	td,th{
 		padding-left: 10px;
 		padding-right: 10px;
@@ -35,6 +42,26 @@
 <body>
 <h1>RAW DATA:</h1>
 <br>
+<h2>Vastauksia: <c:out value="${vastaajaMaara}"></c:out></h2>
+<br>
+<br>
+<form action="/updaterow" method="post">
+<label>UPDATE </label><label>ID </label><input name="id"type="number"/><label> SET </label><select id="setname" name="setname">
+                    <option value=nickname>nickname</option>
+                    <option value=hoursplayed>hoursplayed</option>
+                    <option value=progressdiff>progressdiff</option>
+                    <option value=progressnum>progressnum</option>
+                    <option value=favboss>favboss</option>
+                    <option value=mplus>mplus</option>
+                    <option value=playpvp>playpvp</option>
+                    <option value=removeclass>removeclass</option>
+                    <option value=whyremove>whyremove</option>
+                    <option value=expachype>expachype</option>
+                    
+                </select><label> VALUE </label><input name="setvalue"/>
+                <input type="submit" value="update"/>
+</form>
+<br>
 <table>
 	<th>ID</th><th>NICKNAME</th><th>HOURS PLAYED</th><th>PROGRESS</th><th>FAVORITE BOSS</th>
 	<th>M+ SCORE</th><th>PLAYS PVP</th><th>REMOVED CLASS</th><th>REASONING</th><th>HYPED FOR NEXT EXPAC</th>
@@ -51,13 +78,19 @@
 			<td><c:out value="${vastaukset.removeclass}"></c:out></td>
 			<td><c:out value="${vastaukset.whyremove}"></c:out></td>
 			<td><c:out value="${vastaukset.expachype}"></c:out></td>
-			<td><a href="/deleterow?id=${vastaukset.id}">delete</a></td>
+			<td><a href="/deleterow?id=${vastaukset.id}&conf=adminlolxd">delete</a></td>
 		</tr>
 	</c:forEach>
 
 </table>
+
+
 <br>
+
 <br>
+<footer>
 <a href="/vastaukset" id="vastlink">VASTAUKSIIN</a>
+<br>
+</footer>
 </body>
 </html>

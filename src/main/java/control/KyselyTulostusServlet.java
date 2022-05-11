@@ -41,6 +41,9 @@ public class KyselyTulostusServlet extends HttpServlet{
 			KyselyDao vastauksetdao = new KyselyJdbcDao();
 			List<Kysely> vastaukset = vastauksetdao.findAll();
 			
+			int vastaajaMaara = vastaukset.size();
+			
+			req.setAttribute("vastaajaMaara", vastaajaMaara);
 			req.setAttribute("vastaukset", vastaukset);
 			req.getRequestDispatcher("WEB-INF/kyselyntulostus.jsp").forward(req, resp);
 			
@@ -67,6 +70,8 @@ public class KyselyTulostusServlet extends HttpServlet{
 		
 		return salasana;
 	}
+	
+	
 	
 	
 }

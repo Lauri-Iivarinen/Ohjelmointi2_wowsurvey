@@ -9,5 +9,6 @@ public interface KyselyDao {
 	public boolean insertKysely(String nickname, int hoursplayed, String progressdiff, int progressnum, String favboss, int mplus,
 			boolean playpvp, String removeclass, String whyremove, boolean expachype);
 	public boolean removeRow(int id);
+	public boolean updateRow(String idstr,String setname, String setvalue);
 
 }

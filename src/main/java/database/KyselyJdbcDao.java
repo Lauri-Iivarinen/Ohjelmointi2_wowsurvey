@@ -83,6 +83,80 @@ public class KyselyJdbcDao implements KyselyDao{
 	}
 	
 	
+	//-----------------------------------------------
+	
+	//UPDATEROW
+	
+	//-----------------------------------------------
+	
+	
+	
+	public boolean updateRow(String idstr,String setname, String valuestr) {
+		
+		System.out.println("Values: " + idstr + " " + setname + " " + valuestr);
+		String setColumnName = "";
+		
+		//db jutut
+		Connection dbyhteys = null;
+		PreparedStatement sqlLause = null;
+		boolean onnistunutUpdate = false;
+		
+		//valintarakenne ekaan ? konkatenointi huono, mutta vain hyväksytyt inputit kelpaavat, muuten palauttaa false
+		if (setname.equals("nickname") || setname.equals("hoursplayed") || setname.equals("favboss") || setname.equals("progressnum") || setname.equals("progressdiff") || setname.equals("mplus") || setname.equals("playpvp") || setname.equals("removeclass") || setname.equals("whyremove") || setname.equals("expachype")) {
+			System.out.println("valintarakenne ONNISTUI");
+			setColumnName = setname;
+		}else {
+			System.out.println("valintarakenne epäonnistuu");
+			return false;
+		}
+		
+		
+		
+		dbyhteys = Database.getDBConnection();
+		try {
+			sqlLause = dbyhteys.prepareStatement("UPDATE vastauksetwow SET "+setColumnName+"=? WHERE(id=?);");
+			
+			//metodiin lähtettyn datan käsittely (str)----------
+			
+			
+			int id = Integer.parseInt(idstr);
+			int value = 0;
+			boolean changeBoolean;
+			
+			//arvo on int, jos:
+			if (setname.equals("hoursplayed") || setname.equals("mplus") || setname.equals("progressnum")) {
+				System.out.println("arvo on int");
+				value = Integer.parseInt(valuestr);
+				sqlLause.setInt(1, value);
+				
+			}else if(setname.equals("playpvp") || setname.equals("expachype")){
+				
+				if(valuestr.equals("true")) {
+					changeBoolean = true;
+				}else {
+					changeBoolean = false;
+				}
+				sqlLause.setBoolean(1, changeBoolean);
+			}else {
+				sqlLause.setString(1, valuestr);
+			}
+			
+			sqlLause.setInt(2, id);
+			//----------
+			//lähetetään query, onnistunut = 1
+			if(sqlLause.executeUpdate()==1) {
+				onnistunutUpdate = true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			Database.closeDBConnection(sqlLause, dbyhteys);
+		}
+		return onnistunutUpdate;
+	}
+	
+	
 	//Lähettää lomakkeelle annetut kyselyn vastaukset tietokantaan ja palauttaa onnistumisen
 	public boolean insertKysely(String nickname, int hoursplayed, String progressdiff, int progressnum, String favboss, int mplus,
 			boolean playpvp, String removeclass, String whyremove, boolean expachype) {
