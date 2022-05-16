@@ -1,4 +1,4 @@
-# Ohjelmointi2_wowquery
+# Ohjelmointi2_wowsurvey
 
 Webapplication created on Programming 2 course (Java 2). Application created with Java servlets and it uses PostgreSQL database.
 Goal of the project was to make a working webapp which uses a database, I created a survey regarding a game (World of Warcraft).
