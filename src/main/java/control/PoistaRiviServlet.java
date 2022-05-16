@@ -29,7 +29,7 @@ public class PoistaRiviServlet extends HttpServlet{
 		int id = Integer.parseInt(idstr);
 		
 		String confstr = req.getParameter("conf");
-		if (confstr.equals("adminlolxd")) {
+		if (confstr.equals("alkahflwasfamoasnjawo")) {
 			if(kyselydao.removeRow(id)) resp.sendRedirect("/topsecretresultspage");
 			else {System.out.println("FAILED");}
 		}else {

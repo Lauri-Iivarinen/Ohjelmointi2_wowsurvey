@@ -78,7 +78,7 @@
 			<td><c:out value="${vastaukset.removeclass}"></c:out></td>
 			<td><c:out value="${vastaukset.whyremove}"></c:out></td>
 			<td><c:out value="${vastaukset.expachype}"></c:out></td>
-			<td><a href="/deleterow?id=${vastaukset.id}&conf=adminlolxd">delete</a></td>
+			<td><a href="/deleterow?id=${vastaukset.id}&conf=alkahflwasfamoasnjawo">delete</a></td>
 		</tr>
 	</c:forEach>
 
